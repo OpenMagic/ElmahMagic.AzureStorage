@@ -1,5 +1,5 @@
 # Elmah.AzureTableStorage
 
-[![timpmurphy MyGet Build Status](https://www.myget.org/BuildSource/Badge/timpmurphy?identifier=23378153-d9d7-42c5-bc20-885e13e509dc)](https://www.myget.org/)
+[![timpmurphy MyGet Build Status](https://www.myget.org/BuildSource/Badge/timpmurphy?identifier=267b16a1-0739-46cf-8350-eb508fcf7a3f)](https://www.myget.org/)
 
 An Elmah.ErrorLog implementation that uses Azure Table Storage as its backing store
