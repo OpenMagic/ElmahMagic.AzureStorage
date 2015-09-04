@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +35,19 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EmptyStringGuard, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EmptyStringGuard.Fody.1.0.6.0\lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\EmptyStringGuard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NullGuard, Version=1.4.4.0, Culture=neutral, PublicKeyToken=1958ac8092168428, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NullGuard.Fody.1.4.4\lib\dotnet\NullGuard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,10 +57,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AzureTableStorageErrorLog.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\NullGuard.Fody.1.4.4\build\dotnet\NullGuard.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NullGuard.Fody.1.4.4\build\dotnet\NullGuard.Fody.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Fody.1.29.3\build\dotnet\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Fody.1.29.3\build\dotnet\Fody.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\NullGuard.Fody.1.4.4\build\dotnet\NullGuard.Fody.targets" Condition="Exists('..\..\packages\NullGuard.Fody.1.4.4\build\dotnet\NullGuard.Fody.targets')" />
+  <Import Project="..\..\packages\Fody.1.29.3\build\dotnet\Fody.targets" Condition="Exists('..\..\packages\Fody.1.29.3\build\dotnet\Fody.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
