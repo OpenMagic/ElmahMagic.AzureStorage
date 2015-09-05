@@ -3,8 +3,15 @@ using System.Collections;
 
 namespace Elmah.AzureTableStorage
 {
-    public class AzureTableStorageErrorLog : ErrorLog
+    public class RepositoryErrorLog : ErrorLog
     {
+        private readonly IErrorRepository _errorRepository;
+
+        public RepositoryErrorLog(IErrorRepository errorRepository)
+        {
+            _errorRepository = errorRepository;
+        }
+
         /// <summary>
         ///     Logs an error in log for the application.
         /// </summary>
@@ -13,7 +20,9 @@ namespace Elmah.AzureTableStorage
         /// </returns>
         public override string Log(Error error)
         {
-            throw new NotImplementedException();
+            var entity = new ErrorTableEntity(error);
+            _errorRepository.Add(entity);
+            return entity.RowKey;
         }
 
         /// <summary>
