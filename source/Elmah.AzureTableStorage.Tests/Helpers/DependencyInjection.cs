@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using BoDi;
+using Elmah.Repository;
 using TechTalk.SpecFlow;
 
 namespace Elmah.AzureTableStorage.Tests.Helpers

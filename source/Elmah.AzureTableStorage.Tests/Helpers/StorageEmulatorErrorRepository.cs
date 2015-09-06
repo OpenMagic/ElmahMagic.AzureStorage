@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Elmah.AzureTableStorage.Helpers;
+using Elmah.Repository;
 
 namespace Elmah.AzureTableStorage.Tests.Helpers
 {
@@ -22,14 +24,19 @@ namespace Elmah.AzureTableStorage.Tests.Helpers
             DeleteTableIfExists();
         }
 
-        public void Add(ErrorTableEntity errorTableEntity)
+        public string AddError(Error error)
         {
-            _repository.Add(errorTableEntity);
+            return _repository.AddError(error);
         }
 
-        public ErrorTableEntity Find(string errorId)
+        public Error GetError(string errorId)
         {
-            return _repository.Find(errorId);
+            return _repository.GetError(errorId);
+        }
+
+        public int GetErrors(int pageIndex, int pageSize, IDictionary<string, Error> errors)
+        {
+            return _repository.GetErrors(pageIndex, pageSize, errors);
         }
 
         private void DeleteTableIfExists()

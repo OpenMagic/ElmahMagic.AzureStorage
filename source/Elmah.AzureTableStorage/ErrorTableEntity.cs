@@ -10,20 +10,15 @@ namespace Elmah.AzureTableStorage
     [NullGuard(NullGuard.ValidationFlags.None)]
     public class ErrorTableEntity : TableEntity
     {
-        public ErrorTableEntity()
+        internal static ErrorTableEntity FromError(Error error)
         {
-            // todo: fody
+            throw new System.NotImplementedException();
         }
 
-        public ErrorTableEntity(Error error) : this(Elmah.ErrorXml.EncodeString(error))
+        [return: AllowNull]
+        public Error ToError()
         {
+            throw new System.NotImplementedException();
         }
-
-        private ErrorTableEntity(string errorXml) : base("", TableEntityHelpers.DescendingOrderRowKey())
-        {
-            ErrorXml = errorXml;
-        }
-
-        public string ErrorXml { get; set; }
     }
 }

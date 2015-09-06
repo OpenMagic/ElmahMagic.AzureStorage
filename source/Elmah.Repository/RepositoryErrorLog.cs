@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace Elmah.AzureTableStorage
+namespace Elmah.Repository
 {
     public class RepositoryErrorLog : ErrorLog
     {
@@ -20,9 +21,7 @@ namespace Elmah.AzureTableStorage
         /// </returns>
         public override string Log(Error error)
         {
-            var entity = new ErrorTableEntity(error);
-            _errorRepository.Add(entity);
-            return entity.RowKey;
+            return _errorRepository.AddError(error);
         }
 
         /// <summary>
@@ -30,15 +29,29 @@ namespace Elmah.AzureTableStorage
         /// </summary>
         public override ErrorLogEntry GetError(string id)
         {
-            throw new NotImplementedException();
+            var error = _errorRepository.GetError(id);
+            var entry = new ErrorLogEntry(this, id, error);
+
+            return entry;
         }
 
         /// <summary>
-        ///     Returns a page of errors from the database in descending order of logged time.
+        ///     Updates errorEntryList with a page of errors from the repository in descending order of logged time and returns
+        ///     total number of entries
         /// </summary>
         public override int GetErrors(int pageIndex, int pageSize, IList errorEntryList)
         {
-            throw new NotImplementedException();
+            var errors = new Dictionary<string, Error>();
+
+            var totalCount = _errorRepository.GetErrors(pageIndex, pageSize, errors);
+            var errorLogEntries = errors.Select(error => new ErrorLogEntry(this, error.Key, error.Value));
+
+            foreach (var errorLogEntry in errorLogEntries)
+            {
+                errorEntryList.Add(errorLogEntry);
+            }
+
+            return totalCount;
         }
     }
 }

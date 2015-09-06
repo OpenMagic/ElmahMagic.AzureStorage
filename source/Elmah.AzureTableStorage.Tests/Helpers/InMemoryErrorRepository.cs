@@ -1,19 +1,23 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Elmah.Repository;
 
 namespace Elmah.AzureTableStorage.Tests.Helpers
 {
     public class InMemoryErrorRepository : IErrorRepository
     {
-        private readonly Dictionary<string, ErrorTableEntity> _errors = new Dictionary<string, ErrorTableEntity>();
-
-        public void Add(ErrorTableEntity errorTable)
+        public string AddError(Error error)
         {
-            _errors.Add(errorTable.RowKey, errorTable);
+            throw new System.NotImplementedException();
         }
 
-        public ErrorTableEntity Find(string errorId)
+        public Error GetError(string errorId)
         {
-            return _errors[errorId];
+            throw new System.NotImplementedException();
+        }
+
+        public int GetErrors(int pageIndex, int pageSize, IDictionary<string, Error> errors)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

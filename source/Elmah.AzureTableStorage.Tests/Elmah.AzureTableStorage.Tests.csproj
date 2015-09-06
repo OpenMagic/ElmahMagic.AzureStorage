@@ -108,46 +108,20 @@
     <Compile Include="Helpers\UriExtensions.cs" />
     <Compile Include="Helpers\WindowsAzureStorageEmulator.cs" />
     <Compile Include="Helpers\WindowsAzureStorageEmulatorProcess.cs" />
-    <Compile Include="Steps\AddAnErrorToTheRepositorySteps.cs" />
-    <Compile Include="Features\Get an error from the repository.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Get an error from the repository.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Get pages of errors from the repository.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Get pages of errors from the repository.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Add an error to the repository.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Add an error to the repository.feature</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Features\Get an error from the repository.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Get an error from the repository.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Get pages of errors from the repository.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Get pages of errors from the repository.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Features\Add an error to the repository.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Add an error to the repository.feature.cs</LastGenOutput>
-    </None>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Elmah.AzureTableStorage\Elmah.AzureTableStorage.csproj">
       <Project>{2039B39F-CBEF-449C-88BC-109A28DEFDA8}</Project>
       <Name>Elmah.AzureTableStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Elmah.Repository\Elmah.Repository.csproj">
+      <Project>{60F3A391-83DA-4A55-90A3-E63A3F7B6C8B}</Project>
+      <Name>Elmah.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
