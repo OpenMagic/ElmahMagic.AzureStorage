@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Elmah.AzureTableStorage.Helpers;
 using Elmah.Repository;
 
@@ -24,19 +25,19 @@ namespace Elmah.AzureTableStorage.Tests.Helpers
             DeleteTableIfExists();
         }
 
-        public string AddError(Error error)
+        public Task<string> AddErrorAsync(ErrorRecord error)
         {
-            return _repository.AddError(error);
+            return _repository.AddErrorAsync(error);
         }
 
-        public Error GetError(string errorId)
+        public Task<ErrorRecord> GetErrorAsync(string errorId)
         {
-            return _repository.GetError(errorId);
+            return _repository.GetErrorAsync(errorId);
         }
 
-        public int GetErrors(int pageIndex, int pageSize, IDictionary<string, Error> errors)
+        public Task<int> GetErrorsAsync(int pageIndex, int pageSize, IDictionary<string, ErrorRecord> errors)
         {
-            return _repository.GetErrors(pageIndex, pageSize, errors);
+            return _repository.GetErrorsAsync(pageIndex, pageSize, errors);
         }
 
         private void DeleteTableIfExists()

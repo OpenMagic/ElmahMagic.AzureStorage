@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NullGuard;
 
 namespace Elmah.Repository
@@ -8,11 +9,11 @@ namespace Elmah.Repository
         /// <summary>
         ///     Add an error to the repository.
         /// </summary>
-        /// <param name="error">The error to add.</param>
+        /// <param name="error">The error message to add.</param>
         /// <returns>
         ///     The id of the saved error.
         /// </returns>
-        string AddError(Error error);
+        Task<string> AddErrorAsync(ErrorRecord error);
 
         /// <summary>
         ///     Gets an error from the repository.
@@ -22,7 +23,7 @@ namespace Elmah.Repository
         ///     The requested error or null if the error does not exist.
         /// </returns>
         [return: AllowNull]
-        Error GetError(string errorId);
+        Task<ErrorRecord> GetErrorAsync(string errorId);
 
         /// <summary>
         ///     Get a page of errors from the repository in descending order of logged time.
@@ -33,6 +34,6 @@ namespace Elmah.Repository
         /// <returns>
         ///     The total number of errors in the repository.
         /// </returns>
-        int GetErrors(int pageIndex, int pageSize, IDictionary<string, Error> errors);
+        Task<int> GetErrorsAsync(int pageIndex, int pageSize, IDictionary<string, ErrorRecord> errors);
     }
 }

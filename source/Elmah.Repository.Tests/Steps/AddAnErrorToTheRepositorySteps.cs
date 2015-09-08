@@ -1,4 +1,6 @@
 ﻿using System;
+using Elmah.Repository.Helpers;
+using Elmah.Repository.Tests.Helpers;
 using FakeItEasy;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -9,18 +11,22 @@ namespace Elmah.Repository.Tests.Steps
     public class AddAnErrorToTheRepositorySteps
     {
         private readonly IErrorRepository _errorRepository;
-        private readonly Error _error;
         private string _actualErrorId;
         private ErrorLog _errorLog;
-        private readonly string _expectedErrorId;
+        private readonly string _givenErrorId;
+        private readonly Error _givenError;
+        private int _callsToAddErrorAsync;
 
         public AddAnErrorToTheRepositorySteps()
         {
-            _error = new Error(new Exception("dummy exception"));
-            _errorRepository = A.Fake<IErrorRepository>();
-            _expectedErrorId = Guid.NewGuid().ToString();
+            _givenError = new Error(new Exception("dummy exception"));
+            _givenErrorId = Guid.NewGuid().ToString();
 
-            A.CallTo(() => _errorRepository.AddError(_error)).Returns(_expectedErrorId);
+            _errorRepository = A.Fake<IErrorRepository>();
+
+            A.CallTo(() => _errorRepository.AddErrorAsync(A<ErrorRecord>.That.Matches(errorRecord => errorRecord.IsEquivalentTo(_givenError.ToErrorRecord()))))
+                .Invokes(x => _callsToAddErrorAsync += 1)
+                .Returns(_givenErrorId);
         }
 
         [Given(@"an error log has been created")]
@@ -32,20 +38,19 @@ namespace Elmah.Repository.Tests.Steps
         [When(@"an error is passed to the error log")]
         public void WhenAnErrorIsPassedToTheErrorLog()
         {
-            _actualErrorId = _errorLog.Log(_error);
+            _actualErrorId = _errorLog.Log(_givenError);
         }
 
-         [Then(@"the error is added to the repository")]
+        [Then(@"the error is added to the repository")]
         public void ThenTheErrorIsAddedToTheRepository()
         {
-            A.CallTo(() => _errorRepository.AddError(_error))
-                .MustHaveHappened(Repeated.Exactly.Once);
+            _callsToAddErrorAsync.Should().Be(1);
         }
 
         [Then(@"the error id is returned")]
         public void ThenTheErrorIdIsReturned()
         {
-            _actualErrorId.Should().Be(_expectedErrorId);
+            _actualErrorId.Should().Be(_givenErrorId);
         }
     }
 }

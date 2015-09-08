@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Elmah.AzureTableStorage.Helpers;
 using Elmah.Repository;
 using Microsoft.WindowsAzure.Storage.Table;
@@ -16,25 +17,27 @@ namespace Elmah.AzureTableStorage
             _errorTable = CloudTableHelpers.GetTableReference(connectionString, tableName);
         }
 
-        public string AddError(Error error)
+        public Task<string> AddErrorAsync(ErrorRecord error)
         {
-            var tableEntity = ErrorTableEntity.FromError(error);
-            _errorTable.Execute(TableOperation.Insert(tableEntity));
-            return tableEntity.RowKey;
+            throw new NotImplementedException();
+            //var tableEntity = error.ToTableEntity();
+            //_errorTable.Execute(TableOperation.Insert(tableEntity));
+            //return tableEntity.RowKey;
         }
 
         [return: AllowNull]
-        public Error GetError(string errorId)
+        public Task<ErrorRecord> GetErrorAsync(string errorId)
         {
-            var operation = TableOperation.Retrieve<ErrorTableEntity>("", errorId);
-            var result = _errorTable.Execute(operation);
-            var tableEntity = result.Result as ErrorTableEntity;
-            var error = tableEntity?.ToError();
+            throw new NotImplementedException();
+            //var operation = TableOperation.Retrieve<ErrorTableEntity>("", errorId);
+            //var result = _errorTable.Execute(operation);
+            //var tableEntity = result.Result as ErrorTableEntity;
+            //var error = tableEntity?.ToError();
 
-            return error;
+            //return error;
         }
 
-        public int GetErrors(int pageIndex, int pageSize, IDictionary<string, Error> errors)
+        public Task<int> GetErrorsAsync(int pageIndex, int pageSize, IDictionary<string, ErrorRecord> errors)
         {
             throw new NotImplementedException();
         }

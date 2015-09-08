@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Elmah.Repository.Helpers;
 
 namespace Elmah.Repository
 {
@@ -21,7 +22,8 @@ namespace Elmah.Repository
         /// </returns>
         public override string Log(Error error)
         {
-            return _errorRepository.AddError(error);
+            // todo: proper async support
+            return _errorRepository.AddErrorAsync(error.ToErrorRecord()).Result;
         }
 
         /// <summary>
@@ -29,8 +31,9 @@ namespace Elmah.Repository
         /// </summary>
         public override ErrorLogEntry GetError(string id)
         {
-            var error = _errorRepository.GetError(id);
-            var entry = new ErrorLogEntry(this, id, error);
+            // todo: proper async support
+            var errorMessage = _errorRepository.GetErrorAsync(id).Result;
+            var entry = new ErrorLogEntry(this, id, errorMessage.ToError());
 
             return entry;
         }
@@ -41,10 +44,11 @@ namespace Elmah.Repository
         /// </summary>
         public override int GetErrors(int pageIndex, int pageSize, IList errorEntryList)
         {
-            var errors = new Dictionary<string, Error>();
+            var errors = new Dictionary<string, ErrorRecord>();
 
-            var totalCount = _errorRepository.GetErrors(pageIndex, pageSize, errors);
-            var errorLogEntries = errors.Select(error => new ErrorLogEntry(this, error.Key, error.Value));
+            // todo: proper async support
+            var totalCount = _errorRepository.GetErrorsAsync(pageIndex, pageSize, errors).Result;
+            var errorLogEntries = errors.Select(error => new ErrorLogEntry(this, error.Key, error.Value.ToError()));
 
             foreach (var errorLogEntry in errorLogEntries)
             {

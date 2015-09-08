@@ -96,10 +96,41 @@
     <Compile Include="..\Elmah.AzureTableStorage\Properties\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Helpers\ConvertExtensions.cs" />
+    <Compile Include="Helpers\RecursiveObject.cs" />
+    <Compile Include="Helpers\SimpleObject.cs" />
+    <Compile Include="Steps\KeyValueItemConstructorSteps.cs" />
+    <Compile Include="Features\Create KeyValueItem from key value pair.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create KeyValueItem from key value pair.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\ConvertIDictionaryToKeyValueListSteps.cs" />
+    <Compile Include="Features\Convert IDictionary to KeyValueCollection.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Convert IDictionary to KeyValueCollection.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Convert IDictionary to KeyValueList.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Convert IDictionary to KeyValueList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\ConvertIDictionaryToKeyValueCollectionSteps.cs" />
     <Compile Include="Features\Add an error to the repository.feature.cs">
       <DependentUpon>Add an error to the repository.feature</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Features\Create Error from ErrorRecord.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create Error from ErrorRecord.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Create ErrorRecord from Error.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Create ErrorRecord from Error.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\Get an error from the repository.feature.cs">
       <DependentUpon>Get an error from the repository.feature</DependentUpon>
@@ -111,11 +142,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Helpers\Is.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>
       </SubType>
     </Compile>
     <Compile Include="Steps\AddAnErrorToTheRepositorySteps.cs" />
+    <Compile Include="Helpers\GivenData.cs" />
+    <Compile Include="Helpers\KeyValueRow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
@@ -125,6 +159,26 @@
     <None Include="Features\Add an error to the repository.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Add an error to the repository.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Convert IDictionary to KeyValueList.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Convert IDictionary to KeyValueList.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Convert IDictionary to KeyValueCollection.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Convert IDictionary to KeyValueCollection.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Create Error from ErrorRecord.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Create Error from ErrorRecord.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Create ErrorRecord from Error.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Create ErrorRecord from Error.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Create KeyValueItem from key value pair.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Create KeyValueItem from key value pair.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Get an error from the repository.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
