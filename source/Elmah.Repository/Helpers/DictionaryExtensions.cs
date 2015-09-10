@@ -19,7 +19,7 @@ namespace Elmah.Repository.Helpers
             throw new NotImplementedException();
         }
 
-        public static IList<KeyValueItem> ToKeyValueList(this IDictionary dictionary)
+        private static IList<KeyValueItem> ToKeyValueList(this IDictionary dictionary)
         {
             var query =
                 from object key in dictionary.Keys

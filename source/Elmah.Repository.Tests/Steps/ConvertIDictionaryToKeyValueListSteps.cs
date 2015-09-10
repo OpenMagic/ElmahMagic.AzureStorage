@@ -11,7 +11,7 @@ namespace Elmah.Repository.Tests.Steps
     public class ConvertIDictionaryToKeyValueListSteps
     {
         private readonly GivenData _given;
-        private IList<KeyValueItem> _result;
+        private IReadOnlyCollection<KeyValueItem> _result;
 
         public ConvertIDictionaryToKeyValueListSteps(GivenData given)
         {
@@ -21,7 +21,7 @@ namespace Elmah.Repository.Tests.Steps
         [When(@"I call ToKeyValueList")]
         public void WhenICallToKeyValueList()
         {
-            _result = _given.Dictionary.ToKeyValueList();
+            _result = _given.Dictionary.ToKeyValueCollection();
         }
         
         [Then(@"a name value list should be returned with values")]

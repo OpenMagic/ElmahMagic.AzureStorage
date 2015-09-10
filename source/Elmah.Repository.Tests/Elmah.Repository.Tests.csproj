@@ -106,17 +106,17 @@
       <DependentUpon>Create KeyValueItem from key value pair.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\ConvertIDictionaryToKeyValueListSteps.cs" />
-    <Compile Include="Features\Convert IDictionary to KeyValueCollection.feature.cs">
+    <Compile Include="Features\Convert an IDictionary to a ToKeyValueCollection.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Convert IDictionary to KeyValueCollection.feature</DependentUpon>
+      <DependentUpon>Convert an IDictionary to a ToKeyValueCollection.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Convert IDictionary to KeyValueList.feature.cs">
+    <Compile Include="Features\Convert a NameValueCollection to a ToKeyValueCollection.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Convert IDictionary to KeyValueList.feature</DependentUpon>
+      <DependentUpon>Convert a NameValueCollection to a ToKeyValueCollection.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\ConvertIDictionaryToKeyValueCollectionSteps.cs" />
+    <Compile Include="Steps\ConvertAnIDictionaryToKeyValueCollectionSteps.cs" />
     <Compile Include="Features\Add an error to the repository.feature.cs">
       <DependentUpon>Add an error to the repository.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -160,13 +160,13 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Add an error to the repository.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Convert IDictionary to KeyValueList.feature">
+    <None Include="Features\Convert a NameValueCollection to a ToKeyValueCollection.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Convert IDictionary to KeyValueList.feature.cs</LastGenOutput>
+      <LastGenOutput>Convert a NameValueCollection to a ToKeyValueCollection.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Convert IDictionary to KeyValueCollection.feature">
+    <None Include="Features\Convert an IDictionary to a ToKeyValueCollection.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Convert IDictionary to KeyValueCollection.feature.cs</LastGenOutput>
+      <LastGenOutput>Convert an IDictionary to a ToKeyValueCollection.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Create Error from ErrorRecord.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

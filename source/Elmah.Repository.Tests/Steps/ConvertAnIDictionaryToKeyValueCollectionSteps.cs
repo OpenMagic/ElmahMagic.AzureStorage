@@ -8,18 +8,18 @@ using TechTalk.SpecFlow;
 namespace Elmah.Repository.Tests.Steps
 {
     [Binding]
-    public class ConvertIDictionaryToKeyValueCollectionSteps
+    public class ConvertAnIDictionaryToKeyValueCollectionSteps
     {
         private readonly GivenData _given;
         private IReadOnlyCollection<KeyValueItem>  _result;
 
-        public ConvertIDictionaryToKeyValueCollectionSteps(GivenData given)
+        public ConvertAnIDictionaryToKeyValueCollectionSteps(GivenData given)
         {
             _given = given;
         }
 
-        [Given(@"a dictionary with values")]
-        public void GivenADictionaryWithValues(Table table)
+        [Given(@"an IDictionary with values")]
+        public void GivenAnIDictionaryWithValues(Table table)
         {
             _given.Dictionary = new Dictionary<string, object>();
 
@@ -29,8 +29,8 @@ namespace Elmah.Repository.Tests.Steps
             }
         }
 
-        [Given(@"an empty dictionary")]
-        public void GivenAnEmptyDictionary()
+        [Given(@"an empty IDictionary")]
+        public void GivenAnEmptyIDictionary()
         {
             _given.Dictionary = new Dictionary<string, object>();
         }
@@ -41,8 +41,8 @@ namespace Elmah.Repository.Tests.Steps
             _result = _given.Dictionary.ToKeyValueCollection();
         }
 
-        [Then(@"a name value collection should be returned with values")]
-        public void ThenAKeyValueCollectionShouldBeReturnedWithValues(Table table)
+        [Then(@"a read only collection should be returned with KeyValueItem values")]
+        public void ThenAReadOnlyCollectionShouldBeReturnedWithKeyValueItemValues(Table table)
         {
             var actualKeys = _result.Select(pair => pair.Key);
             var actualValues = _result.Select(pair => pair.Value);
@@ -54,8 +54,8 @@ namespace Elmah.Repository.Tests.Steps
             actualValues.ShouldAllBeEquivalentTo(expectedValues);
         }
 
-        [Then(@"an empty name value collection should be returned")]
-        public void ThenAnEmptyKeyValueCollectionShouldBeReturned()
+        [Then(@"an empty read only collection should be returned")]
+        public void ThenAnEmptyReadOnlyCollectionShouldBeReturned()
         {
             _result.Count.Should().Be(0);
         }
