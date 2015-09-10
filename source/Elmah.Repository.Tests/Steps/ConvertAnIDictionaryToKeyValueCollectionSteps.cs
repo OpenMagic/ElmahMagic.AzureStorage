@@ -38,7 +38,9 @@ namespace Elmah.Repository.Tests.Steps
         [When(@"I call ToKeyValueCollection")]
         public void WhenICallToKeyValueCollection()
         {
-            _result = _given.Dictionary.ToKeyValueCollection();
+            _result = _given.Dictionary != null 
+                ? _given.Dictionary.ToKeyValueCollection() 
+                : _given.NameValueCollection.ToKeyValueCollection();
         }
 
         [Then(@"a read only collection should be returned with KeyValueItem values")]

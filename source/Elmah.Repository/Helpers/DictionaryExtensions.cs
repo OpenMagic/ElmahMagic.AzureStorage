@@ -9,14 +9,23 @@ namespace Elmah.Repository.Helpers
 {
     public static class DictionaryExtensions
     {
+        public static IReadOnlyCollection<KeyValueItem> ToKeyValueCollection(this NameValueCollection collection)
+        {
+            return new ReadOnlyCollection<KeyValueItem>(collection.ToKeyValueList());
+        }
+
         public static IReadOnlyCollection<KeyValueItem> ToKeyValueCollection(this IDictionary dictionary)
         {
             return new ReadOnlyCollection<KeyValueItem>(dictionary.ToKeyValueList());
         }
 
-        public static IReadOnlyCollection<KeyValueItem> ToKeyValueCollection(this NameValueCollection collection)
+        private static IList<KeyValueItem> ToKeyValueList(this NameValueCollection collection)
         {
-            throw new NotImplementedException();
+            var query =
+                from key in collection.AllKeys
+                select new KeyValueItem(key, collection[key]);
+
+            return query.ToList();
         }
 
         private static IList<KeyValueItem> ToKeyValueList(this IDictionary dictionary)

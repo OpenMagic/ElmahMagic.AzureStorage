@@ -96,6 +96,7 @@
     <Compile Include="..\Elmah.AzureTableStorage\Properties\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Steps\ConvertANameValueCollectionToAToKeyValueCollectionSteps.cs" />
     <Compile Include="Helpers\ConvertExtensions.cs" />
     <Compile Include="Helpers\RecursiveObject.cs" />
     <Compile Include="Helpers\SimpleObject.cs" />
@@ -105,7 +106,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Create KeyValueItem from key value pair.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\ConvertIDictionaryToKeyValueListSteps.cs" />
     <Compile Include="Features\Convert an IDictionary to a ToKeyValueCollection.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

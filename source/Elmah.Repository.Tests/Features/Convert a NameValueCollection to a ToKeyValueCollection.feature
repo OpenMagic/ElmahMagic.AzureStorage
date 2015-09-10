@@ -1,6 +1,6 @@
 ﻿Feature: Convert a NameValueCollection to a ToKeyValueCollection
 
-Scenario: NameValueCollection has simple values
+Scenario: NameValueCollection has values
 	Given a NameValueCollection with values
 		| Key | Value           |
 		| a   | 1               |
@@ -8,7 +8,7 @@ Scenario: NameValueCollection has simple values
 		| c   | SimpleObject    |
 		| d   | RecursizeObject |
 	When I call ToKeyValueCollection
-	Then a name value list should be returned with values
+	Then a read only collection should be returned with KeyValueItem values
 		| Key | Value           |
 		| a   | 1               |
 		| b   | hello           |
@@ -18,4 +18,4 @@ Scenario: NameValueCollection has simple values
 Scenario: NameValueCollection is empty
 	Given an empty NameValueCollection
 	When I call ToKeyValueCollection
-	Then an empty name value list should be returned
+	Then an empty read only collection should be returned
