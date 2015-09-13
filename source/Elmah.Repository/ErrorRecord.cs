@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Elmah.Repository.Helpers;
 using EmptyStringGuard;
 using NullGuard;
 using ValidationFlags = NullGuard.ValidationFlags;
@@ -11,7 +10,7 @@ namespace Elmah.Repository
     [EmptyStringGuard(EmptyStringGuard.ValidationFlags.None)]
     public class ErrorRecord
     {
-        public ErrorRecord(DateTime whenUtc, string message, string applicationName, IReadOnlyCollection<KeyValueItem> cookies, string detail, IReadOnlyCollection<KeyValueItem> data, IReadOnlyCollection<KeyValueItem> form, string hostname, IReadOnlyCollection<KeyValueItem> queryString, IReadOnlyCollection<KeyValueItem> serverVariables, string source, int statusCode, string type, string user)
+        public ErrorRecord(DateTime whenUtc, string message, string applicationName, IReadOnlyCollection<KeyValueItem> cookies, string detail, IReadOnlyCollection<KeyValueItem> data, IReadOnlyCollection<KeyValueItem> form, string hostName, IReadOnlyCollection<KeyValueItem> queryString, IReadOnlyCollection<KeyValueItem> serverVariables, string source, int statusCode, string type, string user, string webHostHtmlMessage)
         {
             ApplicationName = applicationName;
             Cookies = cookies;
@@ -19,7 +18,7 @@ namespace Elmah.Repository
             Detail = detail;
             Data = data;
             Form = form;
-            Hostname = hostname;
+            HostName = hostName;
             Message = message;
             QueryString = queryString;
             ServerVariables = serverVariables;
@@ -27,6 +26,7 @@ namespace Elmah.Repository
             StatusCode = statusCode;
             Type = type;
             User = user;
+            WebHostHtmlMessage = webHostHtmlMessage;
         }
 
         public string ApplicationName { get; private set; }
@@ -35,7 +35,7 @@ namespace Elmah.Repository
         public string Detail { get; private set; }
         public IReadOnlyCollection<KeyValueItem> Data { get; private set; }
         public IReadOnlyCollection<KeyValueItem> Form { get; private set; }
-        public string Hostname { get; private set; }
+        public string HostName { get; private set; }
         public string Message { get; private set; }
         public IReadOnlyCollection<KeyValueItem> QueryString { get; private set; }
         public IReadOnlyCollection<KeyValueItem> ServerVariables { get; private set; }
@@ -43,5 +43,6 @@ namespace Elmah.Repository
         public int StatusCode { get; private set; }
         public string Type { get; private set; }
         public string User { get; private set; }
+        public string WebHostHtmlMessage { get; set; }
     }
 }

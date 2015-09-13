@@ -1,11 +1,7 @@
-﻿Feature: Create ErrrorRecord from Error
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿Feature: Create ErrorRecord from Error
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+Scenario: Standard ELMAH Error
+	Given an ELMAH Error
+	When I call ToErrorRecord
+	Then the result should be an ErrorRecord
+	And all public Error properties are copied to ErrorRecord

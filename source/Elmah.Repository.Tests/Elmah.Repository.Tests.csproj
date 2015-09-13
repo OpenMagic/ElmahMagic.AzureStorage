@@ -96,6 +96,9 @@
     <Compile Include="..\Elmah.AzureTableStorage\Properties\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Helpers\Random.cs" />
+    <Compile Include="Steps\CreateErrorFromErrorRecordSteps.cs" />
+    <Compile Include="Steps\CreateErrorRecordFromErrorSteps.cs" />
     <Compile Include="Steps\ConvertANameValueCollectionToAToKeyValueCollectionSteps.cs" />
     <Compile Include="Helpers\ConvertExtensions.cs" />
     <Compile Include="Helpers\RecursiveObject.cs" />
