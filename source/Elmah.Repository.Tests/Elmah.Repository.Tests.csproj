@@ -96,6 +96,8 @@
     <Compile Include="..\Elmah.AzureTableStorage\Properties\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Helpers\DummyException.cs" />
+    <Compile Include="Helpers\IReadonlyCollectionExtensions.cs" />
     <Compile Include="Helpers\NameValueCollectionExtensions.cs" />
     <Compile Include="Steps\AddKeyValueCollectionToNameValueCollectionSteps.cs" />
     <Compile Include="Features\Add KeyValueCollection to NameValueCollection.feature.cs">

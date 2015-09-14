@@ -61,7 +61,7 @@ namespace Elmah.Repository.Tests.Helpers
 
         private static KeyValueItem KeyValueItem => new KeyValueItem(Key, Value);
         private static string Key => String(1, 40);
-        private static string Value => String();
+        private static string Value => String(1, 1000);
 
         public static ErrorRecord ErrorRecord => new ErrorRecord(
             When,
@@ -86,6 +86,10 @@ namespace Elmah.Repository.Tests.Helpers
             {
                 var error = new Error(Exception)
                 {
+                    ApplicationName = ApplicationName,
+                    Source = Source,
+                    StatusCode = StatusCode,
+                    User = User,
                     WebHostHtmlMessage = WebHostHtmlMessage
                 };
                 
@@ -93,12 +97,12 @@ namespace Elmah.Repository.Tests.Helpers
                 error.Form.AddKeyValueCollection(Form);
                 error.QueryString.AddKeyValueCollection(QueryString);
                 error.ServerVariables.AddKeyValueCollection(ServerVariables);
-                
-                throw new NotImplementedException("todo: are all properties initialized?");
+
+                return error;
             }
         }
 
-        public static Exception Exception => new Exception(Message);
+        public static Exception Exception => new DummyException(Message);
 
         private static T RandomValue<T>(IEnumerable<T> values)
         {
