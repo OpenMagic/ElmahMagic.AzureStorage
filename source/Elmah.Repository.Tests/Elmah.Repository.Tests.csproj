@@ -96,6 +96,13 @@
     <Compile Include="..\Elmah.AzureTableStorage\Properties\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Helpers\NameValueCollectionExtensions.cs" />
+    <Compile Include="Steps\AddKeyValueCollectionToNameValueCollectionSteps.cs" />
+    <Compile Include="Features\Add KeyValueCollection to NameValueCollection.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Add KeyValueCollection to NameValueCollection.feature</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Random.cs" />
     <Compile Include="Steps\CreateErrorFromErrorRecordSteps.cs" />
     <Compile Include="Steps\CreateErrorRecordFromErrorSteps.cs" />
@@ -162,6 +169,10 @@
     <None Include="Features\Add an error to the repository.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Add an error to the repository.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Add KeyValueCollection to NameValueCollection.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Add KeyValueCollection to NameValueCollection.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\Convert a NameValueCollection to a ToKeyValueCollection.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

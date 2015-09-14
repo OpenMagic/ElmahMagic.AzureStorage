@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
+using Elmah.Repository.Helpers;
+using Xunit.Sdk;
 
 namespace Elmah.Repository.Tests.Helpers
 {
@@ -77,6 +79,26 @@ namespace Elmah.Repository.Tests.Helpers
             Type,
             User,
             WebHostHtmlMessage);
+
+        public static Error ElmahError
+        {
+            get
+            {
+                var error = new Error(Exception)
+                {
+                    WebHostHtmlMessage = WebHostHtmlMessage
+                };
+                
+                error.Cookies.AddKeyValueCollection(Cookies);
+                error.Form.AddKeyValueCollection(Form);
+                error.QueryString.AddKeyValueCollection(QueryString);
+                error.ServerVariables.AddKeyValueCollection(ServerVariables);
+                
+                throw new NotImplementedException("todo: are all properties initialized?");
+            }
+        }
+
+        public static Exception Exception => new Exception(Message);
 
         private static T RandomValue<T>(IEnumerable<T> values)
         {

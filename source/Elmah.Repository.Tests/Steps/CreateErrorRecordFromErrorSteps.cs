@@ -1,32 +1,38 @@
-﻿using TechTalk.SpecFlow;
+﻿using Elmah.Repository.Helpers;
+using Elmah.Repository.Tests.Helpers;
+using FluentAssertions;
+using TechTalk.SpecFlow;
 
 namespace Elmah.Repository.Tests.Steps
 {
     [Binding]
     public class CreateErrorRecordFromErrorSteps
     {
+        private Error _givenError;
+        private ErrorRecord _result;
+
         [Given(@"an ELMAH Error")]
         public void GivenAnELMAHError()
         {
-            ScenarioContext.Current.Pending();
+            _givenError = Random.ElmahError;
         }
         
         [When(@"I call ToErrorRecord")]
         public void WhenICallToErrorRecord()
         {
-            ScenarioContext.Current.Pending();
+            _result = _givenError.ToErrorRecord();
         }
         
         [Then(@"the result should be an ErrorRecord")]
         public void ThenTheResultShouldBeAnErrorRecord()
         {
-            ScenarioContext.Current.Pending();
+            _result.Should().BeOfType<Error>();
         }
         
         [Then(@"all public Error properties are copied to ErrorRecord")]
         public void ThenAllPublicErrorPropertiesAreCopiedToErrorRecord()
         {
-            ScenarioContext.Current.Pending();
+            _result.ShouldBeEquivalentTo(_givenError);
         }
     }
 }

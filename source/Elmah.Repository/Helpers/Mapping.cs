@@ -44,20 +44,12 @@ namespace Elmah.Repository.Helpers
                 WebHostHtmlMessage = errorRecord.WebHostHtmlMessage
             };
             
-            AddItems(error.Cookies, errorRecord.Cookies);
-            AddItems(error.Form, errorRecord.Form);
-            AddItems(error.QueryString, errorRecord.QueryString);
-            AddItems(error.ServerVariables, errorRecord.ServerVariables);
+            error.Cookies.AddKeyValueCollection(errorRecord.Cookies);
+            error.Form.AddKeyValueCollection(errorRecord.Form);
+            error.QueryString.AddKeyValueCollection(errorRecord.QueryString);
+            error.ServerVariables.AddKeyValueCollection(errorRecord.ServerVariables);
 
             return error;
-        }
-
-        private static void AddItems(NameValueCollection nameValueCollection, IReadOnlyCollection<KeyValueItem> keyValueCollection)
-        {
-            foreach (var keyValueItem in keyValueCollection)
-            {
-                nameValueCollection.Add(keyValueItem.Key, keyValueItem.Value.ToString());
-            }
         }
     }
 }

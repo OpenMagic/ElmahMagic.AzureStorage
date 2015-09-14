@@ -47,16 +47,10 @@ namespace Elmah.Repository.Tests.Steps
 
             _result.Time.Should().Be(_givenErrorRecord.WhenUtc);
 
-            ShouldBeEquivalentTo(_result.ServerVariables, _givenErrorRecord.ServerVariables);
-            ShouldBeEquivalentTo(_result.QueryString, _givenErrorRecord.QueryString);
-            ShouldBeEquivalentTo(_result.Form, _givenErrorRecord.Form);
-            ShouldBeEquivalentTo(_result.Cookies, _givenErrorRecord.Cookies);
-        }
-
-        private static void ShouldBeEquivalentTo(NameValueCollection actual, IReadOnlyCollection<KeyValueItem> expected)
-        {
-            actual.AllKeys.ShouldAllBeEquivalentTo(expected.Select(e => e.Key));
-            actual.AllKeys.Select(a => actual[a]).ShouldAllBeEquivalentTo(expected.Select(e => e.Value));
+            _result.ServerVariables.ShouldAllBeEquivalentTo(_givenErrorRecord.ServerVariables);
+            _result.QueryString.ShouldAllBeEquivalentTo(_givenErrorRecord.QueryString);
+            _result.Form.ShouldAllBeEquivalentTo(_givenErrorRecord.Form);
+            _result.Cookies.ShouldAllBeEquivalentTo(_givenErrorRecord.Cookies);
         }
     }
 }
