@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Elmah.Repository.Helpers;
+using NullGuard;
 
 namespace Elmah.Repository
 {
@@ -29,11 +30,19 @@ namespace Elmah.Repository
         /// <summary>
         ///     Returns the specified error from the database, or null if it does not exist.
         /// </summary>
+        [return: AllowNull]
         public override ErrorLogEntry GetError(string id)
         {
             // todo: proper async support
-            var errorMessage = _errorRepository.GetErrorAsync(id).Result;
-            var entry = new ErrorLogEntry(this, id, errorMessage.ToError());
+            var task = _errorRepository.GetErrorAsync(id);
+            var errorRecord = task.Result;
+
+            if (errorRecord == null)
+            {
+                return null;
+            }
+
+            var entry = new ErrorLogEntry(this, id, errorRecord.ToError());
 
             return entry;
         }

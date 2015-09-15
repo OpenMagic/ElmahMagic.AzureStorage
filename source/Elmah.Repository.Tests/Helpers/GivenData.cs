@@ -12,5 +12,9 @@ namespace Elmah.Repository.Tests.Helpers
         public object Value { get; set; }
         public TypeCode TypeCode { get; set; }
         public NameValueCollection NameValueCollection { get; set; }
+        public Error Error { get; set; }
+        public string ErrorId { get; set; }
+        public IErrorRepository ErrorRepository { get; set; }
+        public RepositoryErrorLog ErrorLog { get; set; }
     }
 }

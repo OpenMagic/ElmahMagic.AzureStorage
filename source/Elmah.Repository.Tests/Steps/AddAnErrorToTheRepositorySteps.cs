@@ -10,35 +10,39 @@ namespace Elmah.Repository.Tests.Steps
     [Binding]
     public class AddAnErrorToTheRepositorySteps
     {
-        private readonly IErrorRepository _errorRepository;
+        private readonly GivenData _given;
         private string _actualErrorId;
-        private ErrorLog _errorLog;
-        private readonly string _givenErrorId;
-        private readonly Error _givenError;
         private int _callsToAddErrorAsync;
 
-        public AddAnErrorToTheRepositorySteps()
+        public AddAnErrorToTheRepositorySteps(GivenData given)
         {
-            _givenError = new Error(new Exception("dummy exception"));
-            _givenErrorId = Guid.NewGuid().ToString();
+            _given = given;
 
-            _errorRepository = A.Fake<IErrorRepository>();
+            _given.Error = new Error(new Exception("dummy exception"));
+            _given.ErrorId = Guid.NewGuid().ToString();
 
-            A.CallTo(() => _errorRepository.AddErrorAsync(A<ErrorRecord>.That.Matches(errorRecord => errorRecord.IsEquivalentTo(_givenError.ToErrorRecord()))))
+            _given.ErrorRepository = A.Fake<IErrorRepository>();
+
+            A.CallTo(() => _given.ErrorRepository.AddErrorAsync(A<ErrorRecord>.That.Matches(errorRecord => errorRecord.IsEquivalentTo(_given.Error.ToErrorRecord()))))
                 .Invokes(x => _callsToAddErrorAsync += 1)
-                .Returns(_givenErrorId);
+                .Returns(_given.ErrorId);
+
+            _given.ErrorLog = new RepositoryErrorLog(_given.ErrorRepository);
         }
 
         [Given(@"an error log has been created")]
         public void GivenAnErrorLogHasBeenCreated()
         {
-            _errorLog = new RepositoryErrorLog(_errorRepository);
+            if (_given.ErrorLog == null)
+            {
+                throw new InvalidOperationException("Constructor of current test class must create the error log");
+            }
         }
 
         [When(@"an error is passed to the error log")]
         public void WhenAnErrorIsPassedToTheErrorLog()
         {
-            _actualErrorId = _errorLog.Log(_givenError);
+            _actualErrorId = _given.ErrorLog.Log(_given.Error);
         }
 
         [Then(@"the error is added to the repository")]
@@ -50,7 +54,7 @@ namespace Elmah.Repository.Tests.Steps
         [Then(@"the error id is returned")]
         public void ThenTheErrorIdIsReturned()
         {
-            _actualErrorId.Should().Be(_givenErrorId);
+            _actualErrorId.Should().Be(_given.ErrorId);
         }
     }
 }
