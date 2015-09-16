@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmah.AzureTableStorage", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmah.AzureTableStorage.Tests", "source\Elmah.AzureTableStorage.Tests\Elmah.AzureTableStorage.Tests.csproj", "{518FA18B-453D-4EEB-B942-3E814BB928C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmah.Repository", "source\Elmah.Repository\Elmah.Repository.csproj", "{60F3A391-83DA-4A55-90A3-E63A3F7B6C8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmahMagic.Repository", "source\ElmahMagic.Repository\ElmahMagic.Repository.csproj", "{60F3A391-83DA-4A55-90A3-E63A3F7B6C8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elmah.Repository.Tests", "source\Elmah.Repository.Tests\Elmah.Repository.Tests.csproj", "{DBE50CF2-BD02-47AB-92C1-C151F0C78283}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmahMagic.Repository.Tests", "source\ElmahMagic.Repository.Tests\ElmahMagic.Repository.Tests.csproj", "{DBE50CF2-BD02-47AB-92C1-C151F0C78283}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

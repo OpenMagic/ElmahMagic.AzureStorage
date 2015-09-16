@@ -1,5 +1,5 @@
 ﻿using System;
-using Elmah.Repository;
+using ElmahMagic.Repository;
 
 namespace Elmah.AzureTableStorage.Helpers
 {

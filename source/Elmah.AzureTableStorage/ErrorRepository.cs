@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Elmah.AzureTableStorage.Helpers;
-using Elmah.Repository;
+using ElmahMagic.Repository;
 using Microsoft.WindowsAzure.Storage.Table;
 using NullGuard;
 

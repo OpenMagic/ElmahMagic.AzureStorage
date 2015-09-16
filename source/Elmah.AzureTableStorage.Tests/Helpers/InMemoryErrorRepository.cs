@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Elmah.Repository;
+using ElmahMagic.Repository;
 
 namespace Elmah.AzureTableStorage.Tests.Helpers
 {

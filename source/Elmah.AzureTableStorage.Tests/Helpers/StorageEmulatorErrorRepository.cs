@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Elmah.AzureTableStorage.Helpers;
-using Elmah.Repository;
+using ElmahMagic.Repository;
 
 namespace Elmah.AzureTableStorage.Tests.Helpers
 {
