@@ -16,5 +16,10 @@ namespace Elmah.Repository.Tests.Helpers
         public string ErrorId { get; set; }
         public IErrorRepository ErrorRepository { get; set; }
         public RepositoryErrorLog ErrorLog { get; set; }
+        public int TotalErrorCount { get; set; }
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
+        public List<ErrorLogEntry> ErrorEntryList { get; set; }
+        public int ExpectedErrorCount { get; set; }
     }
 }
