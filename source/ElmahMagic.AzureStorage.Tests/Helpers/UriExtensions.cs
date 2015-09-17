@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace Elmah.AzureTableStorage.Tests.Helpers
+namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     internal static class UriExtensions
     {

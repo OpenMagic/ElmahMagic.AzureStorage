@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Elmah.AzureTableStorage.Helpers;
+using ElmahMagic.AzureStorage.Helpers;
 using ElmahMagic.Repository;
 
-namespace Elmah.AzureTableStorage.Tests.Helpers
+namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     public class StorageEmulatorErrorRepository : IErrorRepository, IDisposable
     {

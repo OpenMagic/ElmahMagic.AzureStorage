@@ -1,7 +1,7 @@
 ﻿using System;
 using ElmahMagic.Repository;
 
-namespace Elmah.AzureTableStorage.Helpers
+namespace ElmahMagic.AzureStorage.Helpers
 {
     public static class Mapping
     {

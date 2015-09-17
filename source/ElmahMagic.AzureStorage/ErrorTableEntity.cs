@@ -1,10 +1,10 @@
-﻿using Elmah.AzureTableStorage.Helpers;
+﻿using Elmah;
 using EmptyStringGuard;
 using Microsoft.WindowsAzure.Storage.Table;
 using NullGuard;
 using ValidationFlags = EmptyStringGuard.ValidationFlags;
 
-namespace Elmah.AzureTableStorage
+namespace ElmahMagic.AzureStorage
 {
     [EmptyStringGuard(ValidationFlags.None)]
     [NullGuard(NullGuard.ValidationFlags.None)]

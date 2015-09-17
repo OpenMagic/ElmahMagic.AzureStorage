@@ -1,6 +1,6 @@
 using System;
 
-namespace Elmah.AzureTableStorage.Tests.Helpers
+namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     public class TestConfiguration
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace Elmah.AzureTableStorage.Helpers
+namespace ElmahMagic.AzureStorage.Helpers
 {
     public static class CloudTableHelpers
     {

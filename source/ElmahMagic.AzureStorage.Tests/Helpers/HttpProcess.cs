@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Elmah.AzureTableStorage.Tests.Helpers
+namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     internal abstract class HttpProcess : IDisposable
     {

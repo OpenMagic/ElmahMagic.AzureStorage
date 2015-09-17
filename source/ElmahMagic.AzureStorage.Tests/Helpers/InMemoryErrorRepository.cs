@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ElmahMagic.Repository;
 
-namespace Elmah.AzureTableStorage.Tests.Helpers
+namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     public class InMemoryErrorRepository : IErrorRepository
     {

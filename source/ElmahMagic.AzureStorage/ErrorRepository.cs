@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Elmah.AzureTableStorage.Helpers;
+using ElmahMagic.AzureStorage.Helpers;
 using ElmahMagic.Repository;
 using Microsoft.WindowsAzure.Storage.Table;
 using NullGuard;
 
-namespace Elmah.AzureTableStorage
+namespace ElmahMagic.AzureStorage
 {
     public class ErrorRepository : IErrorRepository
     {

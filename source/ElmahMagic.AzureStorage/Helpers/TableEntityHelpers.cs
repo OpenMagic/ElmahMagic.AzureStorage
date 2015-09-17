@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Elmah.AzureTableStorage.Helpers
+namespace ElmahMagic.AzureStorage.Helpers
 {
     public class TableEntityHelpers
     {

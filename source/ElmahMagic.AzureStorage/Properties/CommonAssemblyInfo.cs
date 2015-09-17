@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyProduct("Elmah.AzureTableStorage")]
+[assembly: AssemblyProduct("ElmahMagic.AzureStorage")]
 [assembly: AssemblyCopyright("Copyright © 2015 Tim Murphy")]
 [assembly: ComVisible(false)]
 

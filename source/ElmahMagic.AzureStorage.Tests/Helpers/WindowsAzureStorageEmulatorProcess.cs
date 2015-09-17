@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 
-namespace Elmah.AzureTableStorage.Tests.Helpers
+namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     internal class WindowsAzureStorageEmulatorProcess : HttpProcess
     {

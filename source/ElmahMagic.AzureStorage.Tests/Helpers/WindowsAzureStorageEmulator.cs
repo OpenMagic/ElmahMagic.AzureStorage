@@ -1,4 +1,4 @@
-﻿namespace Elmah.AzureTableStorage.Tests.Helpers
+﻿namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     internal class WindowsAzureStorageEmulator
     {

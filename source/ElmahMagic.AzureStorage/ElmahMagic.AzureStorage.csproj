@@ -7,8 +7,8 @@
     <ProjectGuid>{2039B39F-CBEF-449C-88BC-109A28DEFDA8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Elmah.AzureTableStorage</RootNamespace>
-    <AssemblyName>Elmah.AzureTableStorage</AssemblyName>
+    <RootNamespace>ElmahMagic.AzureStorage</RootNamespace>
+    <AssemblyName>ElmahMagic.AzureStorage</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

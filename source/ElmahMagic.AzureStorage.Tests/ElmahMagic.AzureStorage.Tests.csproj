@@ -8,8 +8,8 @@
     <ProjectGuid>{518FA18B-453D-4EEB-B942-3E814BB928C0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Elmah.AzureTableStorage.Tests</RootNamespace>
-    <AssemblyName>Elmah.AzureTableStorage.Tests</AssemblyName>
+    <RootNamespace>ElmahMagic.AzureStorage.Tests</RootNamespace>
+    <AssemblyName>ElmahMagic.AzureStorage.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -101,7 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Elmah.AzureTableStorage\Properties\CommonAssemblyInfo.cs">
+    <Compile Include="..\ElmahMagic.AzureStorage\Properties\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Helpers\DependencyInjection.cs" />
@@ -119,16 +119,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Elmah.AzureTableStorage\Elmah.AzureTableStorage.csproj">
-      <Project>{2039B39F-CBEF-449C-88BC-109A28DEFDA8}</Project>
-      <Name>Elmah.AzureTableStorage</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ElmahMagic.AzureStorage\ElmahMagic.AzureStorage.csproj">
+      <Project>{2039b39f-cbef-449c-88bc-109a28defda8}</Project>
+      <Name>ElmahMagic.AzureStorage</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

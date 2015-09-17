@@ -2,7 +2,7 @@
 using ElmahMagic.Repository;
 using TechTalk.SpecFlow;
 
-namespace Elmah.AzureTableStorage.Tests.Helpers
+namespace ElmahMagic.AzureStorage.Tests.Helpers
 {
     [Binding]
     public class DependencyInjection
