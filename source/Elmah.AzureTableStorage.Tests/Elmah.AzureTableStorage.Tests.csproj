@@ -40,6 +40,10 @@
       <HintPath>..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ElmahMagic.Repository, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ElmahMagic.Repository.0.2.0.0\lib\net45\ElmahMagic.Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentAssertions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentAssertions.4.0.0\lib\net45\FluentAssertions.dll</HintPath>
       <Private>True</Private>
@@ -119,13 +123,12 @@
       <Project>{2039B39F-CBEF-449C-88BC-109A28DEFDA8}</Project>
       <Name>Elmah.AzureTableStorage</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ElmahMagic.Repository\ElmahMagic.Repository.csproj">
-      <Project>{60F3A391-83DA-4A55-90A3-E63A3F7B6C8B}</Project>
-      <Name>ElmahMagic.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
